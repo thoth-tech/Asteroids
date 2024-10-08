@@ -1,69 +1,54 @@
-# Asteroids1.0
+# Asteroids
 
-## Game intro
+1. Requires a [SplashKit installation](https://splashkit.io/installation/).
+2. OPTIONAL: Build using `skm dotnet build` while in the project folder.
+3. Build and run using `skm dotnet run` while in the project folder.
 
-Asteroids is a top-down single player or co-op shooter that has you, the player, flying around and
-surviving an onslaught of rocks, and if you survive long enough, even bosses! Aim for a high score,
-don't lose your hearts before your friend, and maneuver around dangers and rack up that score!
+_See also: usage documentation for [skm](https://github.com/splashkit/skm/blob/master/README.MD) and [SplashKit](https://splashkit.io/guides/using-splashkit/0-overview/)._
 
-## Running the game
+## Technical overview
 
-Assuming you are CD'd into the correct directory, the game can be run with a simple `skm dotnet run`
-command via the MSYS2 terminal. If you aren't CD'd into the directory, or don't know what that
-means, open MSYS2, find the folder path for Asteroids, and copy it into a
+- **Language:** C#
+- **Current scope:** Medium
+- **Code quality:** Fair
+- **Gameplay implementation:** Complete
 
-```
-cd '{path}'
-```
+## Gameplay overview
 
-command, where {path} is your copied explorer path, apostrophes included to account for file path
-spaces.
+An Asteroids clone supporting 1-2 players where the goal is to stay alive while increasing score. Players must avoid collisions with asteroids and other objects while moving within a confined space. There are bosses and multiple levels.
 
-## Basic Controls
+### Player 1 Controls
 
-Main menu controls assume player 1 controls for movement, selections, and actions unless otherwise
-stated. At any time an ESC key input will quit the game.
+| Action        | Key          |
+|---------------|--------------|
+| Move Forward  | Up arrow     |
+| Rotate Left   | Left arrow   |
+| Rotate Right  | Right arrow  |
+| Fire          | CTRL         |
 
-Player 1 controls:
+### Player 2 Controls
 
-    Up arrow:       Move Forward
-    Left arrow:     Rotate Left
-    Right Arrow:    Rotate Right
-    Ctrl:           Fire
+| Action        | Key          |
+|---------------|--------------|
+| Move Forward  | S/R Key      |
+| Rotate Left   | D Key        |
+| Rotate Right  | G Key        |
+| Fire          | A Key        |
 
-Player 2 controls:
+## Other
 
-    S/R Key:            Move Forward
-    D Key:              Rotate Left
-    G Key:              Rotate Right
-    A Key:              Fire
+- The game has verbose documentation from the original authors in `/docs/`.
 
-## Game Config
+## Screenshots
 
-From the main Asteroids folder, navigating to /Resources/json will yield the `Controls.json` and the
-`Game_Config.json` files. `Controls.json` houses the key mappings that Asteroids has defined (but
-not necessarily ones that are in use, those are above and up-to-date as of writing).
-`Game_Config.json` houses a few editable parameters for Asteroids:
+![](/docs/screenshot-01.png)
 
-    "fullscreen": true,
-    "gameScale": 0.6,
-    "no_boarder": false,
-    "screen_height": 540,
-    "screen_width": 960
+![](/docs/screenshot-02.png)
 
-`fullscreen` will, as the name suggests, determine whether or not on launch the game sets itself to
-fullscreen.
+## Credits
 
-`gameScale` refers to some visual elements of Asteroids, adjusts the position and movement of
-everything in the game, and should not be edited without proper editing of `screen_height` and
-`screen_width` as well to ensure visual communication and fidelity. Example of base game scale and
-calculations for 80% and 60% scaled versions:
+Originally created by 2023-T1 team:
 
-    Full res:                   1600 x 900,   game scale:     1
-    80% res:                    1280 x 720,   game scale:     0.8  →   1600*0.8 || 900*0.7
-    60% res: (current setting)  960 x 540,    game scale:     0.6  →   1600*0.6 || 900*0.6
-
-`no_boarder` will determine, if `fullscreen` is false, whether or not the standard Windows / OS
-program border (that houses minimize, maximize, and close buttons) will be visible on the
-application. This removes movement and minimization functionality of the game window, but the
-application can still be quit via the escape key if necessary.
+- Phil Williams
+- Riley Michael
+- Ro Wern Ong
