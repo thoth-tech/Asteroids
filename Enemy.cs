@@ -242,8 +242,8 @@ public class RockLarge : Enemy
 
     public override void Update()       // update rotation value, check if animations finished
     {
-        X = _AGO._sprite.CenterPoint.X;
-        Y = _AGO._sprite.CenterPoint.Y;
+        X = _AGO._sprite.SpriteCenterPoint.X;
+        Y = _AGO._sprite.SpriteCenterPoint.Y;
         _AGO.updateAngle();
 
         if (_AGO._sprite.AnimationName() == "explode" && _AGO._sprite.AnimationHasEnded)    // first stage, end will set spawn flag
@@ -321,8 +321,8 @@ public class RockMed : Enemy
 
     public override void Update()
     {
-        X = _AGO._sprite.CenterPoint.X;
-        Y = _AGO._sprite.CenterPoint.Y;
+        X = _AGO._sprite.SpriteCenterPoint.X;
+        Y = _AGO._sprite.SpriteCenterPoint.Y;
         _AGO.updateAngle();
 
         if (_AGO._sprite.AnimationName() == "explode" && _AGO._sprite.AnimationHasEnded)
@@ -369,8 +369,8 @@ public class RockSmall : Enemy
         _AGO.rotSpeed = (float)Rot;
         GetSpeed = (int)SplashKit.VectorMagnitude(Vel);
 
-        _AGO._sprite.X = (float)(Start.X - _AGO._sprite.CenterPoint.X);
-        _AGO._sprite.Y = (float)(Start.Y - _AGO._sprite.CenterPoint.Y);
+        _AGO._sprite.X = (float)(Start.X - _AGO._sprite.SpriteCenterPoint.X);
+        _AGO._sprite.Y = (float)(Start.Y - _AGO._sprite.SpriteCenterPoint.Y);
         _AGO.setVelocity(Vel);
     }
 
@@ -404,8 +404,8 @@ public class RockSmall : Enemy
 
     public override void Update()
     {
-        X = _AGO._sprite.CenterPoint.X;
-        Y = _AGO._sprite.CenterPoint.Y;
+        X = _AGO._sprite.SpriteCenterPoint.X;
+        Y = _AGO._sprite.SpriteCenterPoint.Y;
         _AGO.updateAngle();
 
         if (_AGO._sprite.AnimationName() == "explode" && _AGO._sprite.AnimationHasEnded)
@@ -457,7 +457,7 @@ public class BlueRock : Enemy
 
         _RockSprite = SplashKit.CreateSprite(_Rock, _RockAnimation);
         //_RockSprite.AnchorPoint = new Point2D() { X = 75, Y = 75 };
-        _RockSprite.AnchorPoint = _RockSprite.CenterPoint;
+        _RockSprite.AnchorPoint = _RockSprite.SpriteCenterPoint;
         _RockSprite.StartAnimation("normal");
 
         _RockSprite.AddValue("Health", 5);
@@ -1159,7 +1159,7 @@ public class smallShip : Boss2
             int ShotCount = _shots.Count();
 
 
-            Point2D fromPT = new Point2D { X = _Ship.X + (int)(50 * gameScale), Y = _Ship.CenterPoint.Y - (int)(40 * gameScale) };
+            Point2D fromPT = new Point2D { X = _Ship.X + (int)(50 * gameScale), Y = _Ship.SpriteCenterPoint.Y - (int)(40 * gameScale) };
 
             //Console.WriteLine("LaserFiring");
             if (_firstShot)
@@ -1177,7 +1177,7 @@ public class smallShip : Boss2
                 // Console.WriteLine("Target y " + target.Y);
                 // Console.WriteLine("Shot Count " + _shots.Count());
                 //Console.WriteLine("Remaining Shots");
-                if (target.Y > _Ship.CenterPoint.Y - (int)(40 * gameScale) + SplashKit.BitmapNamed("ReallySmallLaser").CellHeight - 1)
+                if (target.Y > _Ship.SpriteCenterPoint.Y - (int)(40 * gameScale) + SplashKit.BitmapNamed("ReallySmallLaser").CellHeight - 1)
                 {
                     // Console.WriteLine("Second All" +u);
                     Shooting ShotType = new Laser(fromPT, _FrameCount);
